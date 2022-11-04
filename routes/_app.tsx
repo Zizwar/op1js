@@ -9,7 +9,10 @@ export default function App({ Component }: AppProps) {
     <div>
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <title>Midino</title>
+
+        <meta charset="UTF-8" />
+        <title>Midino - Web OP-1</title>
+
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Midino" />
         <meta property="og:title" content="Midino" />
@@ -20,7 +23,7 @@ export default function App({ Component }: AppProps) {
           name="keywords"
           content="midi, controle, Deno, DenoLand, Development, JavaScript, TypeScript"
         />
-      
+        <link rel="stylesheet" href="./css/style.css"></link>
       </Head>
       <Component />
     </div>
