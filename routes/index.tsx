@@ -396,7 +396,7 @@ export default function Home() {
                     </div>
                     <div class="white-keys-1">
                       {[...Array(4).keys()].map((_,index) => (
-                        <Keyblock text={index}/>
+                        <Keyblock texto={{normal:index,orange:index+2}}/>
                       ))}
                     </div>
                     <div class="white-keys-2">
