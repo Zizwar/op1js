@@ -24,8 +24,11 @@ export default function App({ Component }: AppProps) {
           content="midi, controle, Deno, DenoLand, Development, JavaScript, TypeScript"
         />
         <link rel="stylesheet" href="./css/style.css"></link>
-      </Head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js" integrity="sha512-Siyxh4gyNM5SaERNa9BOZSPcu/auHyFUWn9OVFD7MxI3/dVPQklE7tfqS+pLmPHF1zo6UdDaJAp/thihrf0c7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+        </Head>
       <Component />
+       
     </div>
   );
 }

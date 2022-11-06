@@ -631,6 +631,7 @@ p {
 }
 
 .white-key-block {
+  cursor: pointer;
   position: relative;
   width: 64px;
   height: 132px;
