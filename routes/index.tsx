@@ -1,6 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import Keyblock from "../islands/keyblock.tsx";
+import { NOTES, NOTES_SHARP } from "../utils/notes.ts";
 
 export default function Home() {
   return (
@@ -396,31 +397,28 @@ export default function Home() {
                       </div>
                     </div>
                     <div class="white-keys-1">
-                      {[...Array(4).keys()].map((_, index) => (
+                      {Array.from([0, 1, 2, 3]).map((arr) => (
                         <Keyblock
-                        index={index}
-                          texto={{ normal: index, orange: index + 2 }}
+                          octave={0}
+                          index={arr}
+                          note={NOTES[arr]}
+                          //texto={{ normal: arr, orange: arr + 2 }}
                         />
                       ))}
                     </div>
                     <div class="white-keys-2">
-                      {[...Array(3).keys()].map((_,index) => (
-                        <Keyblock
-                        index={index+4}
-                        />
+                      {Array.from([4, 5, 6]).map((arr) => (
+                        <Keyblock note={NOTES[arr]} octave={0} index={arr} />
                       ))}
                     </div>
                     <div class="white-keys-3">
-                      {[...Array(4).keys()].map((_,index) => (
-                        <Keyblock
-                        index={index+4+3} />
+                      {Array.from([7, 8, 9, 10]).map((arr) => (
+                        <Keyblock note={NOTES[arr]} octave={1} index={arr} />
                       ))}
                     </div>
                     <div class="white-keys-4">
-                      {[...Array(3).keys()].map((_,index) => (
-                        <Keyblock 
-                        index={index+4+3+4}
-                        />
+                      {Array.from([11, 12, 13]).map((arr) => (
+                        <Keyblock note={NOTES[arr]} octave={1} index={arr} />
                       ))}
                     </div>
                   </div>
