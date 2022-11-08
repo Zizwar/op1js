@@ -1,8 +1,8 @@
 /** @jsx h */
 import { h } from "preact";
 //
-
-const _octave = 4;
+import NoteOrange from "../components/noteOrange.tsx";
+const _octave = 3;
 
 const _onclickAttaq = ({ note, octave }) => {
   const synth = new Tone.Synth().toDestination();
@@ -17,20 +17,13 @@ const _onclickAttaq = ({ note, octave }) => {
   synth.triggerRelease(now + 1);
 };
 
-export default function KeyBlock({ texto = [], note, octave }) {
+export default function KeyBlock({ texto, note, octave }) {
   return (
     <div
       class="white-key-block"
       onClick={() => _onclickAttaq({ note, octave })}
     >
-      <div class="white-key">
-        {texto && (
-          <div class="buttons-two-elements">
-            <p class="normal-18px">{octave}</p>
-            <p class="normal-12px orange">{note}</p>
-          </div>
-        )}
-      </div>
+      <div class="white-key">{note && <NoteOrange note={note} />}</div>
     </div>
   );
 }
