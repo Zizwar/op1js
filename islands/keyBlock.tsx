@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 //
-import NoteOrange from "../components/noteOrange.tsx";
+import NoteOrange from "../components/note-orange.tsx";
 const _octave = 3;
 
 const _onclickAttaq = ({ note, octave }) => {

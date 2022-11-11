@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 //
-import NoteOrange from "../components/noteOrange.tsx";
+import NoteOrange from "../components/note-orange.tsx";
 const _octave = 3;
 
 const _onclickAttaq = ({ note, octave }) => {
@@ -18,13 +18,13 @@ const _onclickAttaq = ({ note, octave }) => {
 };
 
 export default function KeyBlock({ note = [], octave, index }) {
- // alert(index)
-  if (index === 1 || index === 3)
+  // alert(index)
+  if (index === 1 || index === 3) {
     return (
       <div class={`black-keys-${index}`}>
         <div
           class="black-key-block-long"
-          onClick={() => _onclickAttaq({ note:note[0], octave })}
+          onClick={() => _onclickAttaq({ note: note[0], octave })}
         >
           <div class="black-key-right">
             {note && <NoteOrange note={note[0]} />}
@@ -32,13 +32,13 @@ export default function KeyBlock({ note = [], octave, index }) {
         </div>
         <div
           class="black-key-block-short"
-          onClick={() => _onclickAttaq({ note:note[1], octave })}
+          onClick={() => _onclickAttaq({ note: note[1], octave })}
         >
           <div class="black-key">{note && <NoteOrange note={note[1]} />}</div>
         </div>
         <div
           class="black-key-block-long"
-          onClick={() => _onclickAttaq({ note:note[2], octave })}
+          onClick={() => _onclickAttaq({ note: note[2], octave })}
         >
           <div class="black-key-left">
             {note && <NoteOrange note={note[2]} />}
@@ -46,6 +46,7 @@ export default function KeyBlock({ note = [], octave, index }) {
         </div>
       </div>
     );
+  }
   return (
     <div class={`black-keys${index}`}>
       <div class="black-key-block-long">

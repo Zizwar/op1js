@@ -8,5 +8,4 @@ export default function NoteOrange({ note }) {
       <p class="normal-12px orange">{note}</p>
     </div>
   );
- 
 }
