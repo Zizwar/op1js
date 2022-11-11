@@ -1,20 +1,18 @@
 /** @jsx h */
 import { h } from "preact";
 //
+import { useEffect } from "preact/hooks";
+
 import NoteOrange from "../components/note-orange.tsx";
+import WinoTone from "../wino/tone.ts";
 const _octave = 3;
+let wino;
+
+
 
 const _onclickAttaq = ({ note, octave }) => {
-  const synth = new Tone.Synth().toDestination();
-
-  if (!note) return;
-  const noteAttaq = `${note}${octave + _octave}`;
-  //alert(noteAttaq)
-  const now = Tone.now();
-  // trigger the attack immediately
-  synth.triggerAttack(noteAttaq, now);
-  // wait one second before triggering the release
-  synth.triggerRelease(now + 1);
+  wino = new WinoTone({ octave: _octave });
+  wino.clickAttaq({ note, octave });
 };
 
 export default function KeyBlock({ texto, note, octave }) {
