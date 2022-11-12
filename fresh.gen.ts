@@ -7,6 +7,7 @@ import * as $1 from "./routes/api/v1.ts";
 import * as $2 from "./routes/index.tsx";
 import * as $$0 from "./islands/keyBlock.tsx";
 import * as $$1 from "./islands/keyBlockDash.tsx";
+import * as $$2 from "./islands/knob-block.tsx";
 
 const manifest = {
   routes: {
@@ -17,6 +18,7 @@ const manifest = {
   islands: {
     "./islands/keyBlock.tsx": $$0,
     "./islands/keyBlockDash.tsx": $$1,
+    "./islands/knob-block.tsx": $$2,
   },
   baseUrl: import.meta.url,
 };

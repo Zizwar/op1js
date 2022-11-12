@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 //
-
+import KnobBlock from "../islands/knob-block.tsx";
 export default function Upper(props) {
   return (
     <div class="upper-part">
@@ -69,13 +69,11 @@ export default function Upper(props) {
             </div>
           </div>
         </div>
-        <div class="knob-block">
-          <div class="outer-knob">
-            <div class="knob-green">
-              <div class="imprint-green"></div>
-            </div>
-          </div>
-        </div>
+
+        <KnobBlock />
+         
+  
+
         <div class="knob-block">
           <div class="outer-knob">
             <div class="knob-white">
