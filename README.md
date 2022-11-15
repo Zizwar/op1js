@@ -31,7 +31,7 @@ in https://dash.deno.com create a new project and then link to your version repo
 
 
 ### view demo in dash deno dev 
-https://mideno.deno.dev
+https://midino.deno.dev
 
 ### original source css html 
 https://codepen.io/liva_raita/pen/zYxpLjJ by @liva_raita
