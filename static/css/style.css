@@ -699,3 +699,13 @@ p {
   background: #42434e;
   border-radius: 100%;
 }
+/* nexus ui elm*/
+#imprint-blue,
+#imprint-green,
+#imprint-orange,
+#imprint-white {
+  height: 75px;
+  opacity: 0;
+  position: absolute;
+  width: 86px;
+}

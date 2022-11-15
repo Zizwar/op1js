@@ -6,7 +6,7 @@ import Controls from "../components/controls.tsx";
 import RightSide from "../components/right-side.tsx";
 import Transports from "../components/transports.tsx";
 import Upper from "../components/upper.tsx";
-
+import Wino from "../islands/wino.tsx";
 export default function Home() {
 
   return (
@@ -29,6 +29,7 @@ export default function Home() {
           <RightSide />
         </div>
       </div>
+      <Wino/>
     </div>
   );
 }
