@@ -3,6 +3,11 @@ export const nexusIno = () => {
 
   const dials = dialsArr.map((item) =>
     new Nexus.Dial("#imprint-" + item).on("change", function (value) {
+      document.querySelector("#display-circle-volume")
+        .setAttribute("cy", 100 * (value * 100));
+      document.querySelector("#display-rect-volume")
+        .setAttribute("y", 100 * (value * 100));
+
       document.querySelector(".imprint-" + item).style.transform = `rotate(${
         value * 360
       }deg)`;
