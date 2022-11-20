@@ -2,6 +2,8 @@
 import { h } from "preact";
 //
 
+
+import DefaultBackground from "./display/default-backgrond.tsx";
 export default function Upper(props) {
   return (
     <div class="upper-part">
@@ -34,12 +36,12 @@ export default function Upper(props) {
         </div>
       </div>
       <div class="op-screen">
-        <img
+        <div
           class="op-screen-background"
           width="268"
-          alt="op1-display-background"
-          src="https://pizzabreakfast.co/project-assets/web-op-1/op1-display-background.svg"
-        />
+        >
+          <DefaultBackground mode="default"/>
+        </div>
         <div class="tape-rolls">
           <img
             class="roll-1 rotate-center"
@@ -63,9 +65,7 @@ export default function Upper(props) {
       </div>
 
       <div class="knobs">
-   
         <div class="knob-block">
-       
           <div class="outer-knob">
             <div class="knob-blue">
               <div class="imprint-blue"></div>
