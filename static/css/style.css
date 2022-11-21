@@ -709,3 +709,9 @@ p {
   position: absolute;
   width: 86px;
 }
+
+#keyboard{
+  position: absolute;
+  opacity: 0.5;
+  
+}

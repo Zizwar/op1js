@@ -14,6 +14,14 @@ export const nexusIno = () => {
       }deg)`;
     })
   );
+
+  const piano = new Nexus.Piano('#keyboard',{
+    'size': [1024,180],
+    'mode': 'button',  // 'button', 'toggle', or 'impulse'
+    'lowNote': 29,
+    'highNote': 53
+})
+
   /*
   dialsArr.forEach((item) => {
 
