@@ -9,7 +9,7 @@ export default function RightSide(props) {
         <img
           width="16"
           alt="Inbuilt microphone image"
-          src="https://pizzabreakfast.co/project-assets/web-op-1/microphone.svg"
+          src="./svg/microphone.svg"
         />
         <div class="vu-meter">
           <div class="oval-4px"></div>

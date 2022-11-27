@@ -176,7 +176,7 @@ p {
 }
 
 .speaker {
-  background-image: url("https://pizzabreakfast.co/project-assets/web-op-1/speaker.svg");
+  background-image: url("../svg/speaker.svg");
   width: 109px;
   height: 109px;
   background-size: 109px;

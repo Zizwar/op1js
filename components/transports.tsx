@@ -10,7 +10,7 @@ export default function Transports(props) {
           <img
             width="36"
             alt="Synthesizer button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/synthesizer-icon.svg"
+            src="./svg/synthesizer-icon.svg"
           />
         </div>
       </div>
@@ -19,7 +19,7 @@ export default function Transports(props) {
           <img
             width="36"
             alt="Drum button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/drum-icon.svg"
+            src="./svg/drum-icon.svg"
           />
         </div>
       </div>
@@ -28,7 +28,7 @@ export default function Transports(props) {
           <img
             width="36"
             alt="Tape button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/tape-icon.svg"
+            src="./svg/tape-icon.svg"
           />
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function Transports(props) {
             <img
               width="16"
               alt="Lift button icon"
-              src="https://pizzabreakfast.co/project-assets/web-op-1/lift-icon.svg"
+              src="./svg/lift-icon.svg"
             />
             <p class="normal-10px">1–4</p>
           </div>
@@ -49,12 +49,12 @@ export default function Transports(props) {
           <img
             width="16"
             alt="Drop button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/drop-icon.svg"
+            src="./svg/drop-icon.svg"
           />
           <img
             width="16"
             alt="Dot icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/dot-icon.svg"
+            src="./svg/dot-icon.svg"
           />
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function Transports(props) {
             <img
               width="16"
               alt="Split button icon"
-              src="https://pizzabreakfast.co/project-assets/web-op-1/split-icon.svg"
+              src="./svg/split-icon.svg"
             />
             <p class="condensed-10px">JOIN</p>
           </div>
@@ -75,7 +75,7 @@ export default function Transports(props) {
           <img
             width="36"
             alt="Record button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/record-icon.svg"
+            src="./svg/record-icon.svg"
           />
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function Transports(props) {
           <img
             width="24"
             alt="Play button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/play-icon.svg"
+            src="./svg/play-icon.svg"
           />
         </div>
       </div>
@@ -93,7 +93,7 @@ export default function Transports(props) {
           <img
             width="24"
             alt="Stop button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/stop-icon.svg"
+            src="./svg/stop-icon.svg"
           />
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function Transports(props) {
           <img
             width="24"
             alt="Back button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/back-icon.svg"
+            src="./svg/back-icon.svg"
           />
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function Transports(props) {
           <img
             width="24"
             alt="Forward button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/forward-icon.svg"
+            src="./svg/forward-icon.svg"
           />
         </div>
       </div>

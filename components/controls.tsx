@@ -10,7 +10,7 @@ export default function Controls(props) {
           <img
             width="36"
             alt="Mixer button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/mixer-icon.svg"
+            src="./svg/mixer-icon.svg"
           />
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function Controls(props) {
             <img
               width="24"
               alt="Loop button icon"
-              src="https://pizzabreakfast.co/project-assets/web-op-1/loop-icon.svg"
+              src="./svg/loop-icon.svg"
             />
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function Controls(props) {
             <img
               width="24"
               alt="Break button icon"
-              src="https://pizzabreakfast.co/project-assets/web-op-1/break-icon.svg"
+              src="./svg/break-icon.svg"
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function Controls(props) {
             <img
               width="24"
               alt="Chop button icon"
-              src="https://pizzabreakfast.co/project-assets/web-op-1/chop-icon.svg"
+              src="./svg/chop-icon.svg"
             />
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function Controls(props) {
           <img
             width="36"
             alt="Sequencer button icon"
-            src="https://pizzabreakfast.co/project-assets/web-op-1/sequencer-icon.svg"
+            src="./svg/sequencer-icon.svg"
           />
         </div>
       </div>
