@@ -44,8 +44,8 @@ export const nexusIno = () => {
 
     Controls[control] = button;
   });
-  //
-  
+  //compatibe key style with piano nexus
+  const idKey = [[2,4,6],[9,11],[14,16,18], [21,23],[1,3,5,7],[8,10,12],[13,15,17,19],[20,22,24]];
   const keyboard = document.querySelectorAll(".keyboard > div");
   keyboard.forEach((elms,ii)=>{
     if(!elms.id){
