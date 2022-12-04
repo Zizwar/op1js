@@ -44,6 +44,20 @@ export const nexusIno = () => {
 
     Controls[control] = button;
   });
+  //
+  
+  const keyboard = document.querySelectorAll(".keyboard > div");
+  keyboard.forEach((elms,ii)=>{
+    if(!elms.id){
+        const nameClass =  elms.className
+        elms.querySelectorAll("."+nameClass+">div").forEach((elm,i)=>{
+       if(idKey[ii][i]){
+            elm.id='key'+idKey[ii][i]
+            //console.log({id:idKey[ii][i],i})
+       }
+    })
+ }
+})
 
   return ({ Controls, Piano, Knobs });
 };
