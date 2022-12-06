@@ -12,6 +12,7 @@ export const nexusIno = () => {
     });
   });
 
+  // Piano
   const Piano = new Nexus.Piano("#keyboard", {
     "size": [1024, 180],
     "mode": "button", // 'button', 'toggle', or 'impulse'
@@ -19,6 +20,13 @@ export const nexusIno = () => {
     "highNote": 53,
   });
 
+Piano.on('change',function({note,state}) {
+    const id = note-28;
+    $("#key"+id)?.style.backgroundColor = (state?"#369":"#d1d7e0");
+    
+     
+  console.log({note,state});
+})
   //
   const _controls = "mixer,t1,t2,t3,t4,s1,s2,s3,s4,s5,s6,s7,s8,sequencer"
     .split(
