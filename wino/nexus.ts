@@ -22,9 +22,9 @@ export const nexusIno = () => {
 
 Piano.on('change',function({note,state}) {
     const id = note-28;
-    $("#key"+id)?.style.backgroundColor = (state?"#369":"#d1d7e0");
-    
-     
+      if($("#key"+id))
+      $("#key"+id).style.backgroundColor = (state?"#369":"#d1d7e0");
+       
   console.log({note,state});
 })
   //
