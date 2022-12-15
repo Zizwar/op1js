@@ -11,7 +11,7 @@ export default function App({ Component }: AppProps) {
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
 
         <meta charset="UTF-8" />
-        <title>Midino - Web OP-1</title>
+        <title>OP-1 JS</title>
 
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Midino" />
