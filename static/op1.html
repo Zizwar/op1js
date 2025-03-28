@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OP-1 Vanilla Alpine</title>
+  <script src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js" defer></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
+    @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0 auto;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* Typefaces */
+    h1 {
+      font-family: "Roboto";
+      font-weight: normal;
+      font-size: 28px;
+      margin: auto;
+    }
+
+    .op1-label {
+      display: flex;
+      text-align: left;
+      width: 60px;
+      height: 33px;
+      line-height: 33px;
+      font-weight: 300;
+      color: rgba(67, 75, 95, 0.7);
+      transform: rotate(-90deg);
+      grid-row: 5;
+      margin: 0px;
+    }
+
+    p {
+      font-family: "Roboto";
+      font-weight: normal;
+      font-size: 12px;
+      margin: auto;
+      color: rgba(67, 75, 95, 0.7);
+    }
+
+    .condensed-10px {
+      font-family: "Roboto Condensed";
+      font-size: 10px;
+    }
+
+    .condensed-12px {
+      font-family: "Roboto Condensed";
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      height: 14px;
+    }
+
+    .normal-10px {
+      font-size: 10px;
+    }
+
+    .normal-12px {
+      font-size: 12px;
+    }
+
+    .normal-18px {
+      font-size: 18px;
+    }
+
+    .light-32px {
+      font-size: 32px;
+      font-weight: 300;
+    }
+
+    .green {
+      color: #05bf37;
+    }
+
+    .orange {
+      color: #ff5932;
+    }
+
+    /* Container and background */
+    .op1-container-layer1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 1256px;
+      max-width: 1256px;
+      height: 452px;
+      background: linear-gradient(107.83deg, #dedfe4 1.91%, #cacdd4 97.76%);
+      box-sizing: border-box;
+      box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+    }
+
+    .op1-container-layer2 {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      min-width: 1256px;
+      max-width: 1256px;
+      height: 454px;
+      background: linear-gradient(
+        179.56deg,
+        rgba(223, 224, 233, 0.5) 4.52%,
+        rgba(205, 210, 220, 0.5) 96.3%
+      );
+      border: 2px solid #c4c4c2;
+      box-sizing: border-box;
+      box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+    }
+
+    .inner-profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 1162px;
+      max-width: 1162px;
+      height: 416px;
+      margin-left: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-sizing: border-box;
+      box-shadow: inset 2px 2px 2px #d5d5d5;
+      border-radius: 8px;
+    }
+
+    .dark-background {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 1160px;
+      max-width: 1160px;
+      height: 412px;
+      background-color: #0f0e0f;
+      border-radius: 6px;
+    }
+
+    /* Upper elements */
+    .upper-part {
+      display: grid;
+      grid-template-columns: repeat(8, 132px) 64px;
+      grid-template-rows: repeat(1, 132px);
+      grid-column-gap: 4px;
+      grid-row-gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .speaker-block {
+      position: relative;
+      display: flex;
+      width: 132px;
+      height: 132px;
+      align-items: center;
+      justify-content: center;
+      grid-column: 1;
+      grid-row: 1;
+      background: #dfe0e9;
+      border-radius: 4px;
+    }
+
+    .speaker {
+      background-image: url("https://pizzabreakfast.co/project-assets/web-op-1/speaker.svg");
+      width: 109px;
+      height: 109px;
+      background-size: 109px;
+    }
+
+    .button-group-1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+
+    .long-button-block {
+      position: relative;
+      width: 132px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: #dfe0e9;
+      border-radius: 4px;
+    }
+
+    .knob-volume {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      background: #fcfbfc;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 100%;
+      margin-left: 10px;
+    }
+
+    .knob-dot {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      left: 11px;
+      top: 27px;
+      background: #f3f3f3;
+      box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5),
+        inset 1px 1px 1px rgba(209, 205, 199, 0.5);
+      border-radius: 100%;
+    }
+
+    /* OP-1 screen */
+    .op-screen {
+      position: relative;
+      width: 268px;
+      height: 132px;
+      background-color: #0f0e0f;
+      border-radius: 4px;
+      grid-column: 3 / 4;
+    }
+
+    .tape-rolls {
+      position: absolute;
+      top: 22.5px;
+      left: 45px;
+      min-width: 176px;
+      max-width: 176px;
+      min-height: 60px;
+      max-height: 60px;
+      display: grid;
+      grid-template-columns: 60px 60px;
+      grid-template-rows: 60px;
+      grid-gap: 56px;
+    }
+
+    .roll-1 {
+      transform: rotate(320deg);
+    }
+
+    .rotate-center {
+      -webkit-animation: rotate-center 5s linear infinite;
+      animation: rotate-center 5s linear infinite;
+    }
+
+    @-webkit-keyframes rotate-center {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate-center {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    .gloss {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Encoder section */
+    .knobs {
+      display: flex;
+      grid-column: 5 / 9;
+      justify-content: space-between;
+    }
+
+    .knob-block {
+      position: relative;
+      width: 132px;
+      height: 132px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #dfe0e9;
+      border-radius: 4px;
+    }
+
+    .outer-knob {
+      position: relative;
+      background-image: url("https://user-images.githubusercontent.com/11149530/71559596-96038580-2a68-11ea-8e32-8d0d6dc0e95f.png");
+      width: 79px;
+      height: 79px;
+      background-size: 79px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .knob-blue {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #5fbaf2;
+      border: 2px solid #8bd0f9;
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 100%;
+    }
+
+    .imprint-blue {
+      position: relative;
+      width: 32px;
+      height: 9px;
+      background: #5bb3ee;
+      box-shadow: 1px 1px 2px #89d9ff, inset 1px 1px 1px #0292d4;
+      border-radius: 4px;
+      transform: rotate(-45deg);
+    }
+
+    .knob-green {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #00cd73;
+      border: 2px solid #00f1ab;
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 100%;
+    }
+
+    .imprint-green {
+      position: relative;
+      width: 32px;
+      height: 9px;
+      background: #00cf77;
+      box-shadow: 1px 1px 2px rgba(0, 241, 171, 0.75),
+        -1px -1px 1px rgba(0, 241, 171, 0.5), inset 2px 2px 4px #00b34d,
+        inset -2px -2px 4px #00bf66;
+      border-radius: 4px;
+    }
+
+    .knob-white {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fcfbfc;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 100%;
+    }
+
+    .imprint-white {
+      position: relative;
+      width: 32px;
+      height: 9px;
+      background: #f3f3f3;
+      box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5),
+        inset 1px 1px 1px rgba(209, 205, 199, 0.5);
+      border-radius: 4px;
+      transform: rotate(45deg);
+    }
+
+    .knob-orange {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ff6d27;
+      border: 2px solid #ffa361;
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 100%;
+    }
+
+    .imprint-orange {
+      position: relative;
+      width: 32px;
+      height: 9px;
+      background: #ff6e2b;
+      box-shadow: 1px 1px 2px #ffaa70, inset 1px 1px 2px #f74b26,
+        inset -1px -1px 1px #ff6423;
+      border-radius: 4px;
+      transform: rotate(-90deg);
+    }
+
+    .top-right {
+      display: flex;
+      flex-direction: column;
+      grid-column: 9;
+      justify-content: space-between;
+    }
+
+    .transports-controls-keyboard {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .transports {
+      width: 204px;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 64px);
+      grid-template-rows: repeat(4, 64px);
+      grid-column-gap: 4px;
+      grid-row-gap: 4px;
+    }
+
+    .controls-keyboard {
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(14, 64px);
+      grid-template-rows: 64px;
+      grid-column-gap: 4px;
+      grid-row-gap: 4px;
+      padding-bottom: 2px;
+      margin-bottom: 2px;
+    }
+
+    .keyboard {
+      display: grid;
+      grid-template-columns: 268px 200px 268px 200px;
+      grid-template-rows: 64px 132px;
+      grid-column-gap: 4px;
+      grid-row-gap: 4px;
+    }
+
+    .black-keys-1, .black-keys-2, .black-keys-3, .black-keys-4 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .black-keys-1 {
+      grid-column: 1;
+    }
+
+    .black-keys-2 {
+      grid-column: 2;
+    }
+
+    .black-keys-3 {
+      grid-column: 3;
+    }
+
+    .black-keys-4 {
+      grid-column: 4;
+    }
+
+    .white-keys-1, .white-keys-2, .white-keys-3, .white-keys-4 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .white-keys-1 {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .white-keys-2 {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .white-keys-3 {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    .white-keys-4 {
+      grid-column: 4;
+      grid-row: 2;
+    }
+
+    .button-block {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d1d7e0;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #d8dbe3;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 100%;
+    }
+
+    .button:active {
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+      transform: scale(0.95);
+    }
+
+    .buttons-two-elements {
+      display: grid;
+      grid-template-columns: 24px;
+      grid-template-rows: 18px 18px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .black-key-block-short, .black-key-block-long {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #dfe0e9;
+      border-radius: 4px;
+    }
+
+    .black-key-block-short {
+      width: 64px;
+      height: 64px;
+    }
+
+    .black-key-block-long {
+      width: 98px;
+      height: 64px;
+    }
+
+    .black-key, .black-key-left, .black-key-right {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      background: #101010;
+      border: 2px solid #e5e4eb;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      cursor: pointer;
+    }
+
+    .black-key-left {
+      transform: translateX(-16px);
+    }
+
+    .black-key-right {
+      transform: translateX(16px);
+    }
+
+    .white-key-block {
+      position: relative;
+      width: 64px;
+      height: 132px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d1d7e0;
+      border-radius: 4px;
+    }
+
+    .white-key {
+      position: relative;
+      width: 42px;
+      height: 110px;
+      background: #d8dbe3;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-sizing: border-box;
+      box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .black-key:active, .black-key-left:active, .black-key-right:active, .white-key:active {
+      background-color: #369;
+      transform: scale(0.98);
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .right-side-part {
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 72px;
+      grid-template-rows: 1fr;
+      justify-content: center;
+    }
+
+    .microphone-vu-op1 {
+      display: grid;
+      grid-template-columns: 64px;
+      grid-template-rows: 64px 64px 64px 64px 132px;
+      grid-gap: 4px;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .vu-meter {
+      display: grid;
+      grid-template-columns: 4px;
+      grid-template-rows: repeat(5, 13px);
+      grid-row: 3;
+    }
+
+    .oval-4px {
+      width: 4px;
+      height: 4px;
+      background: #42434e;
+      border-radius: 100%;
+    }
+
+    .playing {
+      background-color: #369 !important;
+    }
+
+    .status-message {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div id="op1-app" x-data="op1Synth()">
+    <div class="status-message" x-show="statusMessage" x-text="statusMessage" x-transition></div>
+    
+    <div class="op1-container-layer1">
+      <div class="op1-container-layer2">
+        <div class="inner-profile">
+          <div class="dark-background">
+            <div class="upper-part">
+              <div class="speaker-block"><div class="speaker"></div></div>
+              <div class="button-group-1">
+                <div class="long-button-block">
+                  <div class="knob-volume">
+                    <div class="knob-dot" :style="{ transform: `rotate(${volume * 360}deg)` }"></div>
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Help button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/help-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Tempo button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/tempo-icon.svg">
+                  </div>
+                </div>
+              </div>
+              <div class="op-screen">
+                <svg width="268" height="132" viewBox="0 0 268 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="268" height="132" rx="6" fill="#0F0E0F"></rect>
+                  <text x="134" y="30" font-size="16" fill="white" text-anchor="middle">OP-1 SYNTH</text>
+                  <text x="134" y="60" font-size="14" fill="white" text-anchor="middle" x-text="`Modo: ${currentInstrument}`"></text>
+                  <text x="134" y="80" font-size="12" fill="white" text-anchor="middle">Usa los botones S1-S8 para cambiar</text>
+                  <text x="134" y="100" font-size="12" fill="white" text-anchor="middle">el tipo de instrumento</text>
+                </svg>
+                
+                <div class="tape-rolls">
+                  <img class="roll-1 rotate-center" width="60" alt="roll-1" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/roll-1.svg">
+                  <img class="rotate-center" width="60" alt="roll-2" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/roll-2.svg">
+                </div>
+                <img class="gloss" width="268" alt="Display gloss image" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/gloss.svg">
+              </div>
+              <div class="knobs">
+                <div class="knob-block">
+                  <div class="outer-knob">
+                    <div class="knob-blue">
+                      <div class="imprint-blue" :style="{ transform: `rotate(${reverbWetness * 360}deg)` }"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="knob-block">
+                  <div class="outer-knob">
+                    <div class="knob-green">
+                      <div class="imprint-green" :style="{ transform: `rotate(${filterCutoff * 360}deg)` }"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="knob-block">
+                  <div class="outer-knob">
+                    <div class="knob-white">
+                      <div class="imprint-white" :style="{ transform: `rotate(${0 * 360}deg)` }"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="knob-block">
+                  <div class="outer-knob">
+                    <div class="knob-orange">
+                      <div class="imprint-orange" :style="{ transform: `rotate(${delayTime * 360}deg)` }"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="top-right">
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Microphone button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/mic-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <div>
+                      <img width="16" alt="Album button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/album-icon.svg">
+                      <p class="condensed-10px">COM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="transports-controls-keyboard">
+              <div class="transports">
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Synthesizer button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/synthesizer-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Drum button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/drum-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Tape button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/tape-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <div>
+                      <img width="16" alt="Lift button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/lift-icon.svg">
+                      <p class="normal-10px">1–4</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="16" alt="Drop button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/drop-icon.svg">
+                    <img width="16" alt="Dot icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/dot-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <div>
+                      <img width="16" alt="Split button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/split-icon.svg">
+                      <p class="condensed-10px">JOIN</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="36" alt="Record button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/record-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="24" alt="Play button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/play-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="24" alt="Stop button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/stop-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="24" alt="Back button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/back-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button">
+                    <img width="24" alt="Forward button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/forward-icon.svg">
+                  </div>
+                </div>
+                <div class="button-block">
+                  <div class="button"><p>Shift</p></div>
+                </div>
+              </div>
+
+              <div class="controls-keyboard">
+                <div class="controls">
+                  <div class="button-block">
+                    <div class="button">
+                      <img width="36" alt="Mixer button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/mixer-icon.svg">
+                    </div>
+                  </div>
+                  <div class="button-block">
+                    <div class="button"><p class="light-32px">1</p></div>
+                  </div>
+                  <div class="button-block">
+                    <div class="button"><p class="light-32px">2</p></div>
+                  </div>
+                  <div class="button-block">
+                    <div class="button"><p class="light-32px">3</p></div>
+                  </div>
+                  <div class="button-block">
+                    <div class="button"><p class="light-32px">4</p></div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('piano')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'piano' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">1</p>
+                        <p class="condensed-12px green">IN</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('violin')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'violin' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">2</p>
+                        <p class="condensed-12px green">OUT</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('guitar')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'guitar' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">3</p>
+                        <img width="24" alt="Loop button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/loop-icon.svg">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('flute')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'flute' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">4</p>
+                        <img width="24" alt="Break button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/break-icon.svg">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('trumpet')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'trumpet' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">5</p>
+                        <p class="normal-12px orange">Я</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('clarinet')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'clarinet' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">6</p>
+                        <img width="24" alt="Chop button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/chop-icon.svg">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('harp')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'harp' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">7</p>
+                        <p class="condensed-12px">M1</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block" @click="changeInstrument('xylophone')">
+                    <div class="button" :class="{ 'playing': currentInstrument === 'xylophone' }">
+                      <div class="buttons-two-elements">
+                        <p class="normal-18px">8</p>
+                        <p class="condensed-12px">M2</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block">
+                    <div class="button">
+                      <img width="36" alt="Sequencer button icon" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/sequencer-icon.svg">
+                    </div>
+                  </div>
+                </div>
+                <div class="keyboard">
+                  <!-- Black keys row 1 -->
+                  <div class="black-keys-1">
+                    <div class="black-key-block-long">
+                      <div class="black-key-right" @mousedown="playNote(49)" @mouseup="stopNote(49)" @touchstart="playNote(49)" @touchend="stopNote(49)"></div>
+                    </div>
+                    <div class="black-key-block-short">
+                      <div class="black-key" @mousedown="playNote(51)" @mouseup="stopNote(51)" @touchstart="playNote(51)" @touchend="stopNote(51)"></div>
+                    </div>
+                    <div class="black-key-block-long">
+                      <div class="black-key-left" @mousedown="playNote(54)" @mouseup="stopNote(54)" @touchstart="playNote(54)" @touchend="stopNote(54)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- Black keys row 2 -->
+                  <div class="black-keys-2">
+                    <div class="black-key-block-long">
+                      <div class="black-key-right" @mousedown="playNote(56)" @mouseup="stopNote(56)" @touchstart="playNote(56)" @touchend="stopNote(56)"></div>
+                    </div>
+                    <div class="black-key-block-long">
+                      <div class="black-key-left" @mousedown="playNote(58)" @mouseup="stopNote(58)" @touchstart="playNote(58)" @touchend="stopNote(58)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- Black keys row 3 -->
+                  <div class="black-keys-3">
+                    <div class="black-key-block-long">
+                      <div class="black-key-right" @mousedown="playNote(61)" @mouseup="stopNote(61)" @touchstart="playNote(61)" @touchend="stopNote(61)"></div>
+                    </div>
+                    <div class="black-key-block-short">
+                      <div class="black-key" @mousedown="playNote(63)" @mouseup="stopNote(63)" @touchstart="playNote(63)" @touchend="stopNote(63)"></div>
+                    </div>
+                    <div class="black-key-block-long">
+                      <div class="black-key-left" @mousedown="playNote(66)" @mouseup="stopNote(66)" @touchstart="playNote(66)" @touchend="stopNote(66)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- Black keys row 4 -->
+                  <div class="black-keys-4">
+                    <div class="black-key-block-long">
+                      <div class="black-key-right" @mousedown="playNote(68)" @mouseup="stopNote(68)" @touchstart="playNote(68)" @touchend="stopNote(68)"></div>
+                    </div>
+                    <div class="black-key-block-long">
+                      <div class="black-key-left" @mousedown="playNote(70)" @mouseup="stopNote(70)" @touchstart="playNote(70)" @touchend="stopNote(70)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- White keys row 1 -->
+                  <div class="white-keys-1">
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(48)" @mouseup="stopNote(48)" @touchstart="playNote(48)" @touchend="stopNote(48)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(50)" @mouseup="stopNote(50)" @touchstart="playNote(50)" @touchend="stopNote(50)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(52)" @mouseup="stopNote(52)" @touchstart="playNote(52)" @touchend="stopNote(52)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(53)" @mouseup="stopNote(53)" @touchstart="playNote(53)" @touchend="stopNote(53)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- White keys row 2 -->
+                  <div class="white-keys-2">
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(55)" @mouseup="stopNote(55)" @touchstart="playNote(55)" @touchend="stopNote(55)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(57)" @mouseup="stopNote(57)" @touchstart="playNote(57)" @touchend="stopNote(57)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(59)" @mouseup="stopNote(59)" @touchstart="playNote(59)" @touchend="stopNote(59)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- White keys row 3 -->
+                  <div class="white-keys-3">
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(60)" @mouseup="stopNote(60)" @touchstart="playNote(60)" @touchend="stopNote(60)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(62)" @mouseup="stopNote(62)" @touchstart="playNote(62)" @touchend="stopNote(62)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(64)" @mouseup="stopNote(64)" @touchstart="playNote(64)" @touchend="stopNote(64)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(65)" @mouseup="stopNote(65)" @touchstart="playNote(65)" @touchend="stopNote(65)"></div>
+                    </div>
+                  </div>
+                  
+                  <!-- White keys row 4 -->
+                  <div class="white-keys-4">
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(67)" @mouseup="stopNote(67)" @touchstart="playNote(67)" @touchend="stopNote(67)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(69)" @mouseup="stopNote(69)" @touchstart="playNote(69)" @touchend="stopNote(69)"></div>
+                    </div>
+                    <div class="white-key-block">
+                      <div class="white-key" @mousedown="playNote(71)" @mouseup="stopNote(71)" @touchstart="playNote(71)" @touchend="stopNote(71)"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-side-part">
+          <div class="microphone-vu-op1">
+            <img width="16" alt="Inbuilt microphone image" src="https://res.cloudinary.com/wino/image/upload/v1673484384/op1/microphone.svg">
+            <div class="vu-meter">
+              <div class="oval-4px"></div>
+              <div class="oval-4px"></div>
+              <div class="oval-4px"></div>
+              <div class="oval-4px"></div>
+              <div class="oval-4px"></div>
+            </div>
+            <h1 class="op1-label">OP-1</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('op1Synth', () => ({
+        currentInstrument: 'piano',
+        volume: 0.5,
+        reverbWetness: 0.2,
+        filterCutoff: 0.5,
+        delayTime: 0.1,
+        audioContext: null,
+        masterGainNode: null,
+        reverbNode: null,
+        filterNode: null,
+        delayNode: null,
+        oscillators: {},
+        statusMessage: null,
+        
+        instrumentSettings: {
+          piano: { type: 'triangle', attack: 0.005, decay: 3, sustain: 0.1, release: 0.1 },
+          violin: { type: 'sawtooth', attack: 0.1, decay: 0.3, sustain: 0.8, release: 0.2 },
+          guitar: { type: 'square', attack: 0.005, decay: 0.1, sustain: 0.3, release: 0.1 },
+          flute: { type: 'sine', attack: 0.05, decay: 0.2, sustain: 0.7, release: 0.1 },
+          trumpet: { type: 'sawtooth', attack: 0.05, decay: 0.1, sustain: 0.9, release: 0.1 },
+          clarinet: { type: 'triangle', attack: 0.05, decay: 0.1, sustain: 0.8, release: 0.1 },
+          harp: { type: 'triangle', attack: 0.001, decay: 2.5, sustain: 0.1, release: 0.1 },
+          xylophone: { type: 'sine', attack: 0.001, decay: 0.5, sustain: 0, release: 0.001 }
+        },
+        
+        init() {
+          this.initAudio();
+          
+          // Initialize keyboard controls
+          window.addEventListener('keydown', (e) => {
+            if (e.repeat) return;
+            const note = this.getKeyboardNote(e.key);
+            if (note) this.playNote(note);
+          });
+          
+          window.addEventListener('keyup', (e) => {
+            const note = this.getKeyboardNote(e.key);
+            if (note) this.stopNote(note);
+          });
+          
+          // Add knob controls
+          const knobElements = {
+            blue: document.querySelector('.knob-blue'),
+            green: document.querySelector('.knob-green'),
+            orange: document.querySelector('.knob-orange'),
+            volume: document.querySelector('.knob-volume')
+          };
+          
+          // Set up drag for knobs
+          this.setupKnobDrag(knobElements.blue, 'reverbWetness');
+          this.setupKnobDrag(knobElements.green, 'filterCutoff');
+          this.setupKnobDrag(knobElements.orange, 'delayTime');
+          this.setupKnobDrag(knobElements.volume, 'volume');
+          
+          // Show initial status message
+          this.showStatus('OP-1 Synth Initialized');
+        },
+        
+        initAudio() {
+          try {
+            // Create audio context
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            this.audioContext = new AudioContext();
+            
+            // Create master gain node
+            this.masterGainNode = this.audioContext.createGain();
+            this.masterGainNode.connect(this.audioContext.destination);
+            this.masterGainNode.gain.setValueAtTime(this.volume, this.audioContext.currentTime);
+            
+            // Create reverb
+            this.reverbNode = this.audioContext.createConvolver();
+            this.reverbNode.buffer = this.createReverbImpulse(this.reverbWetness * 3);
+            
+            // Create filter
+            this.filterNode = this.audioContext.createBiquadFilter();
+            this.filterNode.type = 'lowpass';
+            this.filterNode.frequency.setValueAtTime(this.filterCutoff * 10000 + 100, this.audioContext.currentTime);
+            
+            // Create delay
+            this.delayNode = this.audioContext.createDelay(5.0);
+            this.delayNode.delayTime.setValueAtTime(this.delayTime * 0.5, this.audioContext.currentTime);
+            
+            // Connect nodes
+            this.masterGainNode.connect(this.reverbNode);
+            this.reverbNode.connect(this.filterNode);
+            this.filterNode.connect(this.delayNode);
+            this.delayNode.connect(this.audioContext.destination);
+          } catch (e) {
+            console.error('Error initializing audio:', e);
+            this.showStatus('Error initializing audio. Your browser may not support Web Audio API.');
+          }
+        },
+        
+        setupKnobDrag(element, property) {
+          if (!element) return;
+          let isDragging = false;
+          let startY = 0;
+          
+          element.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startY = e.clientY;
+            e.preventDefault();
+          });
+          
+          window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const deltaY = startY - e.clientY;
+            const sensitivity = 0.005;
+            this[property] = Math.min(1, Math.max(0, this[property] + (deltaY * sensitivity)));
+            
+            // Update audio parameters based on the property
+            this.updateAudioParameter(property);
+            
+            startY = e.clientY;
+          });
+          
+          window.addEventListener('mouseup', () => {
+            isDragging = false;
+          });
+        },
+        
+        updateAudioParameter(property) {
+          if (!this.audioContext) return;
+          
+          switch (property) {
+            case 'volume':
+              this.masterGainNode.gain.setValueAtTime(this.volume, this.audioContext.currentTime);
+              break;
+            case 'reverbWetness':
+              this.reverbNode.buffer = this.createReverbImpulse(this.reverbWetness * 3);
+              break;
+            case 'filterCutoff':
+              this.filterNode.frequency.setValueAtTime(this.filterCutoff * 10000 + 100, this.audioContext.currentTime);
+              break;
+            case 'delayTime':
+              this.delayNode.delayTime.setValueAtTime(this.delayTime * 0.5, this.audioContext.currentTime);
+              break;
+          }
+        },
+        
+        createReverbImpulse(duration) {
+          if (!this.audioContext) return null;
+          
+          const sampleRate = this.audioContext.sampleRate;
+          const length = sampleRate * duration;
+          const impulse = this.audioContext.createBuffer(2, length, sampleRate);
+          const leftChannel = impulse.getChannelData(0);
+          const rightChannel = impulse.getChannelData(1);
+
+          for (let i = 0; i < length; i++) {
+            const t = i / sampleRate;
+            const amplitude = Math.exp(-t * 3) * Math.random() * 0.5;
+            leftChannel[i] = amplitude * (Math.random() * 2 - 1);
+            rightChannel[i] = amplitude * (Math.random() * 2 - 1);
+          }
+
+          return impulse;
+        },
+        
+        changeInstrument(instrumentType) {
+          this.currentInstrument = instrumentType;
+          this.showStatus(`Instrument: ${instrumentType}`);
+          
+          // Update filter settings based on the instrument
+          if (!this.audioContext) return;
+          
+          const settings = this.instrumentSettings[instrumentType];
+          this.filterNode.type = 'lowpass';
+          this.filterNode.frequency.setValueAtTime(5000, this.audioContext.currentTime); // Default cutoff
+          this.filterNode.Q.setValueAtTime(1, this.audioContext.currentTime); // Default resonance
+
+          if (instrumentType === 'trumpet' || instrumentType === 'clarinet') {
+            this.filterNode.type = 'bandpass';
+            this.filterNode.frequency.setValueAtTime(2000, this.audioContext.currentTime);
+            this.filterNode.Q.setValueAtTime(5, this.audioContext.currentTime);
+          } else if (instrumentType === 'xylophone') {
+            this.filterNode.type = 'highpass';
+            this.filterNode.frequency.setValueAtTime(2000, this.audioContext.currentTime);
+          }
+
+          // Update reverb settings
+          const reverbDuration = instrumentType === 'piano' || instrumentType === 'harp' ? 2 : 1;
+          this.reverbWetness = reverbDuration / 3; // Normalize to 0-1 range
+          this.reverbNode.buffer = this.createReverbImpulse(this.reverbWetness * 3);
+        },
+        
+        playNote(note) {
+          // Ensure audio context is running (needed for browsers with autoplay policy)
+          if (this.audioContext && this.audioContext.state === 'suspended') {
+            this.audioContext.resume();
+          }
+          
+          if (!this.audioContext) {
+            this.initAudio();
+            if (!this.audioContext) return;
+          }
+          
+          try {
+            // Calculate frequency from MIDI note
+            const freq = 440 * Math.pow(2, (note - 69) / 12);
+            
+            // Create oscillator and gain node
+            const oscillator = this.audioContext.createOscillator();
+            const gainNode = this.audioContext.createGain();
+            const settings = this.instrumentSettings[this.currentInstrument];
+
+            oscillator.type = settings.type;
+            oscillator.frequency.setValueAtTime(freq, this.audioContext.currentTime);
+
+            gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.5, this.audioContext.currentTime + settings.attack);
+            gainNode.gain.linearRampToValueAtTime(settings.sustain * 0.5, this.audioContext.currentTime + settings.attack + settings.decay);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(this.masterGainNode);
+
+            oscillator.start();
+            this.oscillators[note] = { oscillator, gainNode };
+            
+            // Update UI for visual feedback
+            const keyElement = document.querySelector(`#key${note - 47}`);
+            if (keyElement) {
+              keyElement.style.backgroundColor = "#369";
+            }
+          } catch (e) {
+            console.error("Error creating or starting oscillator:", e);
+          }
+        },
+        
+        stopNote(note) {
+          if (this.oscillators[note]) {
+            try {
+              const { oscillator, gainNode } = this.oscillators[note];
+              const settings = this.instrumentSettings[this.currentInstrument];
+              
+              gainNode.gain.setValueAtTime(gainNode.gain.value, this.audioContext.currentTime);
+              gainNode.gain.linearRampToValueAtTime(0, this.audioContext.currentTime + settings.release);
+              oscillator.stop(this.audioContext.currentTime + settings.release);
+              
+              setTimeout(() => {
+                delete this.oscillators[note];
+              }, settings.release * 1000);
+
+              // Reset key color
+              const keyElement = document.querySelector(`#key${note - 47}`);
+              if (keyElement) {
+                keyElement.style.backgroundColor = "";
+              }
+            } catch (e) {
+              console.error("Error stopping oscillator:", e);
+            }
+          }
+        },
+        
+        getKeyboardNote(key) {
+          // Map computer keyboard to piano notes
+          const keyboardMap = {
+            'a': 60, // Middle C
+            'w': 61,
+            's': 62,
+            'e': 63,
+            'd': 64,
+            'f': 65,
+            't': 66,
+            'g': 67,
+            'y': 68,
+            'h': 69,
+            'u': 70,
+            'j': 71,
+            'k': 72,
+            'o': 73,
+            'l': 74,
+            'p': 75,
+            ';': 76,
+            "'": 77,
+            'z': 48, // Lower octave
+            'x': 50,
+            'c': 52,
+            'v': 53,
+            'b': 55,
+            'n': 57,
+            'm': 59
+          };
+          
+          return keyboardMap[key.toLowerCase()];
+        },
+        
+        showStatus(message) {
+          this.statusMessage = message;
+          setTimeout(() => {
+            this.statusMessage = null;
+          }, 2000);
+        }
+      }));
+    });
+  </script>
+</body>
+</html>
